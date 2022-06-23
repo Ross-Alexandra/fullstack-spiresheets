@@ -1,0 +1,39 @@
+{
+  "name": "fullstack-spritesheets",
+  "version": "0.1.0",
+  "description": "A combonation tool/library to help people generate, then use \"spritesheets\" for web applications.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc -p tsconfig.build.json",
+    "prepublish": "npm run build",
+    "lint": "eslint . --ext .ts",
+    "local": "npm i -g && generate-spritesheet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ross-Alexandra/fullstack-spritesheets.git"
+  },
+  "author": "Ross Alexandra",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Ross-Alexandra/fullstack-spritesheets/issues"
+  },
+  "bin": {
+    "generate-spritesheet": "dist/bin/index.js"
+  },
+  "homepage": "https://github.com/Ross-Alexandra/fullstack-spritesheets#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
