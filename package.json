@@ -35,5 +35,14 @@
   },
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.182",
+    "canvas": "^2.9.2",
+    "commander": "^9.3.0",
+    "glob": "^8.0.3",
+    "lodash": "^4.17.21"
+  }
 }

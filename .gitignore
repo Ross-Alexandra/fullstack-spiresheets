@@ -1,2 +1,7 @@
 node_modules
 /dist
+/assets
+
+# Test generation files
+spritesheet.png
+spritesheet-data.json
