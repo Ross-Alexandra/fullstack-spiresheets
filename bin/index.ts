@@ -31,7 +31,7 @@ async function waitForGlob(globArgument: string, options: G.IOptions): Promise<s
 }
 
 async function generateSpritesheet(fileGlobs: string[]) {
-    const pathNormalizedFileGlobs = fileGlobs.map(fileGlob => fileGlob.replace(/\\/g, "/"));
+    const pathNormalizedFileGlobs = fileGlobs.map(fileGlob => fileGlob?.replace(/\\/g, "/")).filter(fileGlob => Boolean(fileGlob));
 
     const matchingFiles: string[] = [];
     for (const fileGlob of pathNormalizedFileGlobs) {
