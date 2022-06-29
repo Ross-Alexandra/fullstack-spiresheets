@@ -1,4 +1,3 @@
-(Note, this package is not complete. If you somehow found this before it was published **this README lies to you**. This README was created first to define the vision.)
 # Fullstack Spritesheet
 A combonation tool/library to help people generate, then use "spritesheets" for web applications. 
 
@@ -31,21 +30,23 @@ free or to pinch every penny then this package might be for you.
 ### Generating your spritesheet
 Before you can do anything, you'll need to generate your spritesheet. To do this, simply run
 ```
-npx generate-spritesheet ["path/to/assets/*.jpg", "path/to/other/assets/*.png", ...]
+npx generate-spritesheet "path/to/assets/*.jpg" "path/to/other/assets/*.png", ...
 ```
-> At this time, `generate-spritesheets` cannot handle two files having the same name under different directories. This means that if you had `icons/filter.png` and `banners/filter.png` and included both in the generation, it would fail. This is because the parser and generated info use the asset names as identifiers. 
+> At this time, `generate-spritesheets` cannot handle two files having the same name under different directories. This means that if you had `icons/foobar.png` and `banners/foobar.png` and included both in the generation, it would fail. This is because the parser and generated info use the asset names as identifiers. 
 
 This will generate two files `./spritesheet.png` and `./spritesheet-data.json` in your current working directory.
 
 ### Using the spritesheet in your webapp
 To use the images from your spritesheet in your code, first create a new spritesheet
 ```javascript
-const spritesheet = Spitesheet('path/or/url/to/spritesheet.png', 'path/or/url/to/spritesheet-data.json');
+const {data: spritesheetData} = await axios.get('url/to/spritesheet-data.json');
+const spritesheetImages = await Spitesheet('url/to/spritesheet.png', spritesheetData);
 ```
 
-Then, to access an image simply `get` the filename that asset was stored under.
+The generates `spriesheetImages` will then be an object with `[assetName]: 'assetDataURL` for each asset, so accessing the
+'myBanner' asset could be done like:
 ```javascript
-const myBanner = spritesheet.get('myBanner');
+const myBanner = spritesheet.myBanner;
 ```
 > As mentioned above, the generation tool does not currently support multiple assets with the same name.
 

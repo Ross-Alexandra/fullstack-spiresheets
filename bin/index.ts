@@ -66,9 +66,10 @@ async function generateSpritesheet(fileGlobs: string[]) {
         .map(image => {
             const imageY = 0;
             spritesheetContext.drawImage(image, spritesheetX, imageY, image.width, image.height);
+            const imagePairs = [getFilenameFromPath(image.src as string), {x: spritesheetX, y: imageY, width: image.width, height: image.height}];
 
             spritesheetX += image.width;
-            return [getFilenameFromPath(image.src as string), {x: spritesheetX, y: imageY, width: image.width, height: image.height}];
+            return imagePairs;
         })
         .thru(dataPairs => [['version', version], ...dataPairs])
         .fromPairs()
