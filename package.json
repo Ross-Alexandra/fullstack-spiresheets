@@ -1,6 +1,6 @@
 {
   "name": "fullstack-spritesheets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A combonation tool/library to help people generate, then use \"spritesheets\" for web applications.",
   "main": "dist/src/index.js",
   "scripts": {

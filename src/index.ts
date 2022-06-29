@@ -20,7 +20,7 @@ export async function Spritesheet(spritesheetSource: string, spritesheetData: t_
         .toPairs()
         .map(([imageName, imageData]) => [
             imageName,
-            _.get(versionParsers, dataVersion, () => {throw `Unsupported version ${dataVersion}`})(imageData, spritesheetImage)
+            _.get(versionParsers, dataVersion, _.get(versionParsers, 'default'))(imageData, spritesheetImage)
         ])
         .fromPairs()
         .value()
